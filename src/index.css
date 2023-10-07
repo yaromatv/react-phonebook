@@ -1,7 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 /* @import 'reset-css'; */
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,16 +12,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-#root {
+/* #root {
   width: 420px;
-}
+} */
 
 input {
   margin-top: 10px;

@@ -1,42 +1,63 @@
-import ContactForm from 'components/ContactForm';
-import Filter from 'components/Filter';
-import ContactList from 'components/ContactList';
+// import { ContactForm } from 'components/ContactForm';
+// import { Filter } from 'components/Filter';
+// import { ContactList } from 'components/ContactList';
+import { Routes, Route } from 'react-router-dom';
 
-// import { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getContacts } from 'redux/selectors';
-// import { restoreContacts } from 'redux/contactsSlice';
+import { Layout } from './Layout/Layout';
+import { HomePage } from '../pages/HomePage';
+import { RegisterPage } from 'pages/RegisterPage';
+import { LoginPage } from 'pages/LoginPage';
+import { ContactsPage } from 'pages/ContactsPage';
 
-const App = () => {
-  // // localStorage logics
-  // const dispatch = useDispatch();
-  // const storeContacts = useSelector(getContacts);
+import { Toaster } from 'react-hot-toast';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from 'hooks';
 
-  // //  load from localStorage
-  // useEffect(() => {
-  //   const contacts = localStorage.getItem('contacts');
-  //   const parsedContacts = JSON.parse(contacts);
+export const App = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-  //   if (parsedContacts.length > 0) {
-  //     dispatch(restoreContacts(parsedContacts));
-  //   }
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-  // //  save to localStorage
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(storeContacts));
-  // }, [storeContacts]);
-
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <>
-      <h1>Phonebook</h1>
-      <ContactForm />
+      <Toaster />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
 
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+          {/* <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/tasks"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
+            }
+          />
+          <Route
+            path="/tasks"
+            element={
+              <PrivateRoute redirectTo="/login" component={<TasksPage />} />
+            }
+          /> */}
+        </Route>
+      </Routes>
     </>
   );
 };
-
-export default App;

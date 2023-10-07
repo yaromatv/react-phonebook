@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { updateFilter } from 'redux/filterSlice';
 
-const Filter = () => {
+export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -17,5 +17,3 @@ const Filter = () => {
     </div>
   );
 };
-
-export default Filter;

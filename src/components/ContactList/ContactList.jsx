@@ -3,7 +3,7 @@ import { getContacts, getFilter } from 'redux/selectors';
 import { deleteContact } from 'redux/contactsSlice';
 import css from 'components/ContactList/ContactList.module.css';
 
-const ContactList = () => {
+export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -36,5 +36,3 @@ const ContactList = () => {
     </ul>
   );
 };
-
-export default ContactList;

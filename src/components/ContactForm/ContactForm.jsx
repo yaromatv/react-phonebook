@@ -5,7 +5,7 @@ import { getContacts } from 'redux/selectors';
 
 import css from 'components/ContactForm/ContactForm.module.css';
 
-const ContactForm = () => {
+export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -15,9 +15,25 @@ const ContactForm = () => {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
 
-    const isExisting = contacts.find(contact => contact.name === name);
-    if (isExisting) {
-      window.alert(`${name} is already in contacts`);
+    // const isExisting = contacts.find(contact => contact.name === name);
+    // if (isExisting) {
+    //   window.alert(`${name} is already in contacts`);
+    //   return;
+    // }
+
+    const existingContact = contacts.find(
+      contact => contact.name === name || contact.number === number
+    );
+
+    if (existingContact) {
+      if (existingContact.name === name) {
+        window.alert(`${existingContact.name} is already in contacts`);
+      }
+
+      if (existingContact.number === number) {
+        window.alert(`${existingContact.number} is already in contacts`);
+      }
+
       return;
     }
 
@@ -52,5 +68,3 @@ const ContactForm = () => {
     </form>
   );
 };
-
-export default ContactForm;
