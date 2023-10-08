@@ -1,27 +1,29 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-import { addContact } from 'redux/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from 'redux/contactsSlice';
 
 import css from 'components/ContactForm/ContactForm.module.css';
 
-export const ContactForm = () => {
-  const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+// import axios from 'axios';
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-  const handleSubmit = e => {
+export const ContactForm = () => {
+  const { data: contacts } = useGetContactsQuery();
+  // const { data: contacts, error, isLoading } = useGetContactsQuery();
+
+  const [addContact, { isLoading: addIsLoading }] = useAddContactMutation();
+
+  //  const [addContact, addResult] = useAddContactMutation();
+  // const { isError: addError, isLoading: addLoading, isSuccess: addisSuccess } = addResult;
+
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
 
-    // const isExisting = contacts.find(contact => contact.name === name);
-    // if (isExisting) {
-    //   window.alert(`${name} is already in contacts`);
-    //   return;
-    // }
-
-    const existingContact = contacts.find(
+    const existingContact = contacts?.find(
       contact => contact.name === name || contact.number === number
     );
 
@@ -37,8 +39,11 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact(name, number));
-    form.reset();
+    try {
+      await addContact({ name, number });
+    } catch (error) {
+      console.error('Error adding contact:', error);
+    }
   };
 
   return (
@@ -64,7 +69,9 @@ export const ContactForm = () => {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button disabled={addIsLoading} type="submit">
+        Add contact
+      </button>
     </form>
   );
 };
