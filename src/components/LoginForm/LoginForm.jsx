@@ -4,6 +4,7 @@ import { login } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 // import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { Input } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export const LoginForm = () => {
       //   console.log(res);
       if (res.meta.requestStatus === 'fulfilled') {
         toast.success(`User ${userData.email} successfully loged in!`);
+
         form.reset();
       }
     });
@@ -32,11 +34,11 @@ export const LoginForm = () => {
     <form className={css.form} onSubmit={handleSubmit} autoComplete="on">
       <label className={css.label}>
         Email
-        <input type="email" name="email" />
+        <Input type="email" name="email" placeholder="Email" />
       </label>
       <label className={css.label}>
         Password
-        <input type="password" name="password" />
+        <Input type="password" name="password" placeholder="Password" />
       </label>
       <button type="submit">Log in</button>
 

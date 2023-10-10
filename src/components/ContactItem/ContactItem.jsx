@@ -1,4 +1,6 @@
 import { useDeleteContactMutation } from 'redux/contactsSlice';
+import { Box, Text, IconButton } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 
 export const ContactItem = ({ id, name, number }) => {
   const [deleteContact, deleteContactResult] = useDeleteContactMutation();
@@ -6,17 +8,33 @@ export const ContactItem = ({ id, name, number }) => {
     deleteContactResult;
 
   return (
-    <li key={id}>
-      <span>
-        {name}: {number}
-      </span>
-      <button
+    <Box
+      key={id}
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Text>{name}</Text>
+      <Text marginLeft={'auto'} marginRight={'3'}>
+        {number}
+      </Text>
+      <IconButton
+        isLoading={deleteIsLoading || deleteIsSuccess}
+        aria-label="Delete contact"
+        icon={<DeleteIcon />}
+        onClick={() => deleteContact(id)}
+        variant="outline"
+        size="xs"
+      />
+      {/* <Button
         disabled={deleteIsLoading || deleteIsSuccess}
         type="button"
         onClick={() => deleteContact(id)}
+        variant="outline"
+        size="xs"
       >
         Delete
-      </button>
-    </li>
+      </Button> */}
+    </Box>
   );
 };

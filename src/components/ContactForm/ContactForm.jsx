@@ -3,10 +3,8 @@ import {
   useAddContactMutation,
 } from 'redux/contactsSlice';
 
-import css from 'components/ContactForm/ContactForm.module.css';
-
-// import axios from 'axios';
-// axios.defaults.headers.post['Content-Type'] = 'application/json';
+import { Input, Button, VStack } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons';
 
 export const ContactForm = () => {
   const { data: contacts } = useGetContactsQuery();
@@ -41,37 +39,52 @@ export const ContactForm = () => {
 
     try {
       await addContact({ name, number });
+      //FIX ONLY IF SUCCESS
+      form.reset();
     } catch (error) {
       console.error('Error adding contact:', error);
     }
   };
 
   return (
-    <form className={css.contactForm} onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input
+    <form onSubmit={handleSubmit}>
+      <VStack
+        w="xs"
+        h="min"
+        borderWidth="1px"
+        borderRadius="2xl"
+        padding="10"
+        space="5"
+        alignItems="flex-end"
+      >
+        {/* <FormLabel>Type new contact data</FormLabel> */}
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          placeholder="Name"
         />
-      </label>
-
-      <label>
-        Number
-        <input
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
+          placeholder="Number"
         />
-      </label>
-      <button disabled={addIsLoading} type="submit">
-        Add contact
-      </button>
+        <Button
+          isLoading={addIsLoading}
+          leftIcon={<AddIcon />}
+          type="submit"
+          variant="solid"
+          w="min"
+          marginTop="2.5"
+        >
+          Add contact
+        </Button>
+      </VStack>
     </form>
   );
 };
