@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.2654367a.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.2f18ee92.js",
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.dd757953.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.78097b37.js",
+    "static/media/lexend-latin-400-normal.woff": "/goit-react-hw-08-phonebook/static/media/lexend-latin-400-normal.c87b078621ccaa289069.woff",
+    "static/media/lexend-latin-ext-400-normal.woff": "/goit-react-hw-08-phonebook/static/media/lexend-latin-ext-400-normal.cd70863c92b3253d794f.woff",
+    "static/media/lexend-latin-400-normal.woff2": "/goit-react-hw-08-phonebook/static/media/lexend-latin-400-normal.66f3898e74813ae23646.woff2",
+    "static/media/lexend-latin-ext-400-normal.woff2": "/goit-react-hw-08-phonebook/static/media/lexend-latin-ext-400-normal.8798764a2ef5c5762912.woff2",
+    "static/media/lexend-vietnamese-400-normal.woff": "/goit-react-hw-08-phonebook/static/media/lexend-vietnamese-400-normal.d8777d5b5c32fc341177.woff",
+    "static/media/lexend-vietnamese-400-normal.woff2": "/goit-react-hw-08-phonebook/static/media/lexend-vietnamese-400-normal.0c9858ac0202e5eb0c8b.woff2",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.2654367a.css.map": "/goit-react-hw-08-phonebook/static/css/main.2654367a.css.map",
-    "main.2f18ee92.js.map": "/goit-react-hw-08-phonebook/static/js/main.2f18ee92.js.map"
+    "main.dd757953.css.map": "/goit-react-hw-08-phonebook/static/css/main.dd757953.css.map",
+    "main.78097b37.js.map": "/goit-react-hw-08-phonebook/static/js/main.78097b37.js.map"
   },
   "entrypoints": [
-    "static/css/main.2654367a.css",
-    "static/js/main.2f18ee92.js"
+    "static/css/main.dd757953.css",
+    "static/js/main.78097b37.js"
   ]
 }
