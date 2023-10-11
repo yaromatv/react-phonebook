@@ -26,7 +26,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Center flexDirection="column" w="100vw" h="100vh">
+    <Center flexDirection="column" w="100vw" h="85vh">
       <Spinner size="xl" />
       <Text marginTop={4}>Refreshing user</Text>
     </Center>

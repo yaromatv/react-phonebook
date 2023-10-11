@@ -1,7 +1,20 @@
-import css from './RegisterForm.module.css';
 import { register } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
+
+import {
+  Input,
+  VStack,
+  Button,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react';
+import {
+  AtSignIcon,
+  EmailIcon,
+  LockIcon,
+  ArrowForwardIcon,
+} from '@chakra-ui/icons';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -26,20 +39,41 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="on">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <VStack
+        w="xs"
+        h="min"
+        borderWidth="1px"
+        borderRadius="2xl"
+        padding="10"
+        spacing="5"
+        alignItems="flex-end"
+      >
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <AtSignIcon color="gray.400" />
+          </InputLeftElement>
+          <Input type="text" name="name" placeholder="Username" />
+        </InputGroup>
+
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <EmailIcon color="gray.400" />
+          </InputLeftElement>
+          <Input type="email" name="email" placeholder="Email" />
+        </InputGroup>
+
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <LockIcon color="gray.400" />
+          </InputLeftElement>
+          <Input type="password" name="password" placeholder="Password" />
+        </InputGroup>
+
+        <Button type="submit" marginTop="2.5" rightIcon={<ArrowForwardIcon />}>
+          Register
+        </Button>
+      </VStack>
     </form>
   );
 };

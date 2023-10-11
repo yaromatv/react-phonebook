@@ -1,9 +1,10 @@
 import { RegisterForm } from 'components/RegisterForm';
+import { Center } from '@chakra-ui/react';
 
 export function RegisterPage() {
   return (
-    <div>
+    <Center h={'85vh'}>
       <RegisterForm />
-    </div>
+    </Center>
   );
 }

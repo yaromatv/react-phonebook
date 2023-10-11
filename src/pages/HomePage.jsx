@@ -17,9 +17,9 @@ export function HomePage() {
     <div style={styles.container}>
       <h1 style={styles.title}>
         Welcome to Contactbook
-        <span role="img" aria-label="Greeting icon">
+        {/* <span role="img" aria-label="Greeting icon">
           💁‍♀️
-        </span>
+        </span> */}
       </h1>
     </div>
   );

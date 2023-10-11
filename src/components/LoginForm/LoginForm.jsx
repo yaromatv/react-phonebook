@@ -1,10 +1,16 @@
-import css from './LoginForm.module.css';
 import { login } from 'redux/auth/operations';
-// import { refreshUser } from 'redux/auth/operations';
+
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
-// import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { Input } from '@chakra-ui/react';
+
+import {
+  Input,
+  VStack,
+  Button,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react';
+import { EmailIcon, LockIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -28,36 +34,35 @@ export const LoginForm = () => {
     });
   };
 
-  // const showState = useSelector(state => state);
-
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="on">
-      <label className={css.label}>
-        Email
-        <Input type="email" name="email" placeholder="Email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <Input type="password" name="password" placeholder="Password" />
-      </label>
-      <button type="submit">Log in</button>
+    <form onSubmit={handleSubmit} autoComplete="on">
+      <VStack
+        w="xs"
+        h="min"
+        borderWidth="1px"
+        borderRadius="2xl"
+        padding="10"
+        spacing="5"
+        alignItems="flex-end"
+      >
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <EmailIcon color="gray.400" />
+          </InputLeftElement>
+          <Input type="email" name="email" placeholder="Email" />
+        </InputGroup>
 
-      {/* <button
-        type="button"
-        onClick={() => {
-          console.log(showState);
-        }}
-      >
-        STATE
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(refreshUser());
-        }}
-      >
-        refreshUser
-      </button> */}
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <LockIcon color="gray.400" />
+          </InputLeftElement>
+          <Input type="password" name="password" placeholder="Password" />
+        </InputGroup>
+
+        <Button type="submit" marginTop="2.5" rightIcon={<ArrowForwardIcon />}>
+          Log in
+        </Button>
+      </VStack>
     </form>
   );
 };

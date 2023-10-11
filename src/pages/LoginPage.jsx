@@ -1,9 +1,10 @@
 import { LoginForm } from 'components/LoginForm/LoginForm';
+import { Center } from '@chakra-ui/react';
 
 export const LoginPage = () => {
   return (
-    <div>
+    <Center h={'85vh'}>
       <LoginForm />
-    </div>
+    </Center>
   );
 };
