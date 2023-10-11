@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
-import css from './UserBar.module.css';
 
 import toast from 'react-hot-toast';
+import { Button, Text, Flex } from '@chakra-ui/react';
 
 export const UserBar = () => {
   const dispatch = useDispatch();
@@ -19,11 +19,14 @@ export const UserBar = () => {
   };
 
   return (
-    <div className={css.wrapper}>
-      <p className={css.username}>Welcome, {userName}</p>
-      <button type="button" onClick={handleLogout}>
+    <Flex padding={3} paddingRight={0} gap={3}>
+      <Text>
+        Welcome, <Text as="b">{userName}</Text>
+      </Text>
+
+      <Button type="button" onClick={handleLogout} size="xs" variant="outline">
         Logout
-      </button>
-    </div>
+      </Button>
+    </Flex>
   );
 };

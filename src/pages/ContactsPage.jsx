@@ -6,9 +6,8 @@ import { Container, Flex, VStack } from '@chakra-ui/react';
 
 export const ContactsPage = () => {
   return (
-    <Container maxW="container.lg">
+    <Container maxW="container.lg" h="min" marginBottom={'4'}>
       <Flex
-        h="90vh"
         direction={{ base: 'column', md: 'row' }}
         justify={{ md: 'space-between' }}
         alignItems={{ base: 'center', md: 'start' }}
@@ -21,7 +20,7 @@ export const ContactsPage = () => {
           h="min"
           marginLeft={{ base: '0', md: '20' }}
           marginTop={{ base: '10', md: '0' }}
-          spacing="10"
+          spacing={{ base: '5', md: '10' }}
           alignItems="flex-start"
         >
           <Filter />

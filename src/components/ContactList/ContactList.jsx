@@ -46,11 +46,9 @@ export const ContactList = () => {
         {contacts?.length > 0 || (
           <Text color="gray.300">It's empty here, add any contact</Text>
         )}
-        {contacts?.length > 0 &&
-          filteredContacts?.length === 0 &&
-          filter !== '' && (
-            <Text color="orange.400">No contact found with your query</Text>
-          )}
+        {contacts?.length > 0 && filteredContacts?.length === 0 && (
+          <Text color="orange.400">No contact found with your query</Text>
+        )}
       </VStack>
     </>
   );

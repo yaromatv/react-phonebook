@@ -7,7 +7,7 @@ import { Input, FormLabel, Box } from '@chakra-ui/react';
 export const Filter = () => {
   const dispatch = useDispatch();
   const { data: contacts } = useGetContactsQuery();
-  const contactsAreEmpty = contacts.length === 0;
+  const contactsAreEmpty = contacts?.length === 0;
 
   const handleChange = e => {
     dispatch(updateFilter(e.target.value));
