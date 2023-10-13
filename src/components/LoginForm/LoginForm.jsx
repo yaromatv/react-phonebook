@@ -1,6 +1,5 @@
-import { login } from 'redux/auth/operations';
-
 import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/operations';
 import toast from 'react-hot-toast';
 
 import {
@@ -28,7 +27,6 @@ export const LoginForm = () => {
       //   console.log(res);
       if (res.meta.requestStatus === 'fulfilled') {
         toast.success(`User ${userData.email} successfully loged in!`);
-
         form.reset();
       }
     });

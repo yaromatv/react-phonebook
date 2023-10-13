@@ -23,16 +23,20 @@ export const theme = extendTheme({
   //   },
   components: {
     Button: {
-      //   baseStyle: {
-      //     bg: 'red.500',
-      //     fontWeight: 'bold',
-      //   },
+      baseStyle: {
+        // bg: 'red.500',
+        fontWeight: 'semi-bold',
+        transitionDuration: '0.3s',
+        transitionTimingFunction: 'ease-in-out',
+      },
       defaultProps: {
         // size: 'lg', // default is md
         // variant: 'sm', // default is solid
-        colorScheme: 'purple', // default is gray
+        // fontWeight: 'light',
+        colorScheme: 'purple',
       },
     },
+
     Input: {
       baseStyle: {
         // fontSize: '30px',

@@ -21,7 +21,8 @@ export const UserBar = () => {
   return (
     <Flex padding={3} paddingRight={0} gap={3}>
       <Text>
-        Welcome, <Text as="b">{userName}</Text>
+        {/* Welcome, */}
+        <Text as="b">{userName}</Text>
       </Text>
 
       <Button type="button" onClick={handleLogout} size="xs" variant="outline">
