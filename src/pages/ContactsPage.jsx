@@ -4,7 +4,7 @@ import { ContactList } from 'components/ContactList';
 
 import { Container, Flex, VStack } from '@chakra-ui/react';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   return (
     <Container maxW="container.lg" h="min" marginBottom={'4'}>
       <Flex
@@ -12,7 +12,6 @@ export const ContactsPage = () => {
         justify={{ md: 'space-between' }}
         alignItems={{ base: 'center', md: 'start' }}
       >
-        {/* <h1>Phonebook</h1> */}
         <ContactForm />
 
         <VStack
@@ -31,3 +30,5 @@ export const ContactsPage = () => {
     </Container>
   );
 };
+
+export default ContactsPage;

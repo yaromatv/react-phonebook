@@ -1,21 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
+import { Layout } from './Layout/Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
-
-import { Layout } from './Layout/Layout';
-import { HomePage } from 'pages/HomePage';
-import { RegisterPage } from 'pages/RegisterPage';
-import { LoginPage } from 'pages/LoginPage';
-import { ContactsPage } from 'pages/ContactsPage';
 
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 
 import { Toaster } from 'react-hot-toast';
 import { Spinner, Center, Text } from '@chakra-ui/react';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -60,9 +60,6 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
-          {/* <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<ContactsPage />} /> */}
         </Route>
       </Routes>
     </>

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/operations';
-import toast from 'react-hot-toast';
 
+import toast from 'react-hot-toast';
 import {
   Input,
   VStack,
@@ -24,7 +24,6 @@ export const LoginForm = () => {
     };
 
     dispatch(login(userData)).then(res => {
-      //   console.log(res);
       if (res.meta.requestStatus === 'fulfilled') {
         toast.success(`User ${userData.email} successfully loged in!`);
         form.reset();

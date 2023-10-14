@@ -11,7 +11,6 @@ export const UserBar = () => {
 
   const handleLogout = () => {
     dispatch(logout()).then(res => {
-      // console.log(res);
       if (res.meta.requestStatus === 'fulfilled') {
         toast.success(`You loged out successfully`);
       }
@@ -21,7 +20,6 @@ export const UserBar = () => {
   return (
     <Flex padding={3} paddingRight={0} gap={3}>
       <Text>
-        {/* Welcome, */}
         <Text as="b">{userName}</Text>
       </Text>
 

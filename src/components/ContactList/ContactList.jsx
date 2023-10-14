@@ -6,7 +6,6 @@ import { Text, Heading, VStack, StackDivider } from '@chakra-ui/react';
 
 export const ContactList = () => {
   const { data: contacts } = useGetContactsQuery();
-  // const { data: contacts, error, isLoading } = useGetContactsQuery();
 
   const filter = useSelector(state => state.filter);
   const normalizedFilter = filter.toLowerCase();
@@ -16,7 +15,6 @@ export const ContactList = () => {
           contact.name.toLowerCase().includes(normalizedFilter)
         )
       : contacts;
-  // console.log(filteredContacts);
 
   return (
     <>

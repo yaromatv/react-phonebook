@@ -8,12 +8,7 @@ import { AddIcon } from '@chakra-ui/icons';
 
 export const ContactForm = () => {
   const { data: contacts } = useGetContactsQuery();
-  // const { data: contacts, error, isLoading } = useGetContactsQuery();
-
   const [addContact, { isLoading: addIsLoading }] = useAddContactMutation();
-
-  //  const [addContact, addResult] = useAddContactMutation();
-  // const { isError: addError, isLoading: addLoading, isSuccess: addisSuccess } = addResult;
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -39,7 +34,6 @@ export const ContactForm = () => {
 
     try {
       await addContact({ name, number });
-      //FIX ONLY IF SUCCESS
       form.reset();
     } catch (error) {
       console.error('Error adding contact:', error);
@@ -57,7 +51,6 @@ export const ContactForm = () => {
         space="5"
         alignItems="flex-end"
       >
-        {/* <FormLabel>Type new contact data</FormLabel> */}
         <Input
           type="text"
           name="name"

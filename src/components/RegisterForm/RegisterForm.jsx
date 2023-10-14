@@ -1,7 +1,7 @@
 import { register } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
 
+import toast from 'react-hot-toast';
 import {
   Input,
   VStack,
@@ -30,7 +30,6 @@ export const RegisterForm = () => {
     };
 
     dispatch(register(userData)).then(res => {
-      // console.log(res);
       if (res.meta.requestStatus === 'fulfilled') {
         toast.success(`User ${userData.name} created!`);
         form.reset();

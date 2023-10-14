@@ -2,6 +2,7 @@ import { Navigation } from './Navigation';
 import { UserBar } from './UserBar';
 import { AuthNav } from './AuthNav/AuthNav';
 import { useAuth } from 'hooks';
+
 import { Container, Box } from '@chakra-ui/react';
 
 export const AppBar = () => {

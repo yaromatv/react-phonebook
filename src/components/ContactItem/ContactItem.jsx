@@ -1,4 +1,5 @@
 import { useDeleteContactMutation } from 'redux/contactsSlice';
+
 import { Box, Text, IconButton } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 
@@ -26,15 +27,6 @@ export const ContactItem = ({ id, name, number }) => {
         variant="outline"
         size="xs"
       />
-      {/* <Button
-        disabled={deleteIsLoading || deleteIsSuccess}
-        type="button"
-        onClick={() => deleteContact(id)}
-        variant="outline"
-        size="xs"
-      >
-        Delete
-      </Button> */}
     </Box>
   );
 };

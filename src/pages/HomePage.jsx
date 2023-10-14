@@ -12,15 +12,12 @@ const styles = {
   },
 };
 
-export function HomePage() {
+const HomePage = () => {
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>
-        Welcome to Contactbook
-        {/* <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span> */}
-      </h1>
+      <h1 style={styles.title}>Welcome to Phonebook</h1>
     </div>
   );
-}
+};
+
+export default HomePage;
