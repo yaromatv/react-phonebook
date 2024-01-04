@@ -13,15 +13,17 @@ export const ContactForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
-    const name = form.elements.name.value;
+    const name = form.elements.name.value.trim();
     const number = form.elements.number.value;
 
     const existingContact = contacts?.find(
-      contact => contact.name === name || contact.number === number
+      contact =>
+        contact.name.toLowerCase() === name.toLowerCase() ||
+        contact.number === number
     );
 
     if (existingContact) {
-      if (existingContact.name === name) {
+      if (existingContact.name.toLowerCase() === name.toLowerCase()) {
         window.alert(`${existingContact.name} is already in contacts`);
       }
 
