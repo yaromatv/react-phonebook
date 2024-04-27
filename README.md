@@ -19,6 +19,6 @@ A React application for managing phonebook entries. It allows you to create, vie
 
 ## Getting Started
 
-1. Clone the repo: `git clone https://github.com/yaromatv/watertracker-backend.git`
+1. Clone the repo: `git clone https://github.com/yaromatv/react-phonebook.git`
 2. Install dependencies: `npm install`
 3. Start the server: `npm start`
