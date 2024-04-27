@@ -12,11 +12,10 @@ This is a React application for managing phonebook entries. It allows you to cre
 
 ## Technologies Used
 
-- React: A JavaScript framework for building user interfaces
-- Chakra UI: A React component library that provides accessible, composable, and themeable UI components
-- Redux Toolkit: A simplified version of Redux for managing application state
-- Axios: A promise-based HTTP client for making API requests
-- Framer Motion: A library for adding animation and transitions to your React components
+- React
+- Chakra UI
+- Redux Toolkit
+- Axios
 
 ## Getting Started
 
