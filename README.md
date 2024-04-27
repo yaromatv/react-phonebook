@@ -1,6 +1,6 @@
 # Phonebook
 
-This is a React application for managing phonebook entries. It allows you to create, view, edit, and delete contacts.
+A React application for managing phonebook entries. It allows you to create, view, edit, and delete contacts.
 
 ## Features
 
